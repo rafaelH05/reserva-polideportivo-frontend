@@ -1,0 +1,35 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg" style="width: 100%;">
+    <div class="container-fluid" style="width: 100%;">
+      <div>
+        <img src="assets/Villaverde.png" alt="logo" width="60px" class="me-2">
+        <a href="/" class="text-xl font-bold" *ngIf="!isLoggedIn">Reserva Deportiva Villaverde</a>
+        <a href="/homeLogin" class="text-xl font-bold" *ngIf="isLoggedIn">Reserva Deportiva Villaverde</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto" style="display: flex; align-items: center; gap: 8px;">
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <a href="/login" class="text-blue-600 mr-4" id="iniciarSesion">Iniciar sesión</a>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <a href="/register" class="bg-blue-600 text-white px-4 py-2 rounded" id="registrarse">Registrarse</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <a href="/booking" class="text-blue-600 mr-4" id="reservar">Reservar</a>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <button (click)="logout()" style="background: none; border: none;">
+              <a class="text-blue-600 mr-4" id="cerrarSesion">Cerrar sesión</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+

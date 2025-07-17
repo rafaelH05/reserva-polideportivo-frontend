@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="container py-5" style="margin-top: 50px;">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-header bg-success text-white text-center">
+          <h2 class="mb-0">Reservar pista</h2>
+        </div>
+        <div class="card-body p-4">
+          <form (ngSubmit)="booking()">
+            <!-- Selección de instalación -->
+            <div class="mb-3">
+              <label for="facility" class="form-label">Instalación</label>
+              <select id="facility" [(ngModel)]="selectedFacility" name="facility" class="form-select" (change)="onChanges()" required>
+                <option value="0"  disabled selected>Selecciona una instalación</option>
+                <option value="1">Padel Pista 1</option>
+                <option value="2">Padel Pista 2</option>
+                <option value="3">Tenis Pista 1</option>
+                <option value="4">Tenis Pista 2</option>
+                <option value="5">Campo de Futbol</option>
+              </select>
+            </div>
+            <!-- Selección de fecha -->
+            <div class="mb-3">
+              <label for="date" class="form-label">Fecha</label>
+              <input type="date" id="date" name="date" class="form-control" (change)="onChanges()" [min]="today" [(ngModel)]="selectedDate" required>
+            </div>
+            <!-- Selección de hora -->
+            <div class="mb-3">
+              <label for="time" class="form-label">Hora</label>
+              <select id="time" name="time" class="form-select" [(ngModel)]="selectedTime" required>
+                <option *ngIf="times.length === 0" disabled selected>No hay horas disponibles</option>
+                <option *ngFor="let time of times" [value]="time">{{ time}}</option>
+              </select>
+            </div>
+            <!-- Botón reservar -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success btn-lg" >
+                Reservar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Mensaje de éxito/error -->
+   
+    </div>
+  </div>
+</div>

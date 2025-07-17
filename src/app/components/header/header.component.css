@@ -1,0 +1,60 @@
+.header {
+  background: #fff;
+  box-shadow: 0 10px 9px rgba(0, 0, 0, 0.07);
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header .text-xl {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.header a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.header a.text-blue-600 {
+  color: #249122;
+  background: none;
+  border: none;
+  margin-right: 8px;
+}
+
+.header a.text-blue-600:hover {
+  color: #1c681b;
+  background: none;
+  text-decoration: none;
+}
+
+.header a.bg-blue-600 {
+  background: #249122;
+  color: #fff;
+  margin-left: 4px;
+}
+
+.header a.bg-blue-600:hover {
+  background: #1c681b;
+  color: #fff;
+}
+
+.navbar-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
