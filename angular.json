@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "photos": {
+    "reserva-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/photos",
+            "outputPath": "dist/reserva-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "photos:build:production"
+              "buildTarget": "reserva-app:build:production"
             },
             "development": {
-              "buildTarget": "photos:build:development"
+              "buildTarget": "reserva-app:build:development"
             }
           },
           "defaultConfiguration": "development"
