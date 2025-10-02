@@ -45,7 +45,7 @@ export class HomeLoginComponent {
         for (let i = 0; i < data.length; i++) {
           this.bookings = data;
         }
-        console.log(this.bookings);
+        
       },
       error => {
         console.error("Error fetching booking data:", error);
@@ -82,7 +82,7 @@ export class HomeLoginComponent {
         this.facilityFree[facilityId] = [hora];
       }
     }
-    console.log(Object.entries(this.facilityFree));
+    
   }
 
 
