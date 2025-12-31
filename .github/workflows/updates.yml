@@ -7,16 +7,23 @@ jobs:
   desplegar:
     runs-on: ubuntu-latest
     steps:
-      - name: Conectarse por SSH y actualizar web
+      - name: Conectarse vía Proxy (VM1) a VM2 y desplegar
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_DNS }}
+         # VM2
+          host: ${{ secrets.HOST_DNS }}       
           username: ubuntu
-          key: ${{ secrets.SSH_KEY }}
+          key: ${{ secrets.SSH_KEY }}          
+          
+         # VM1
+          proxy_host: ${{ secrets.PROXY_HOST }}
+          proxy_username: ubuntu
+          proxy_key: ${{ secrets.SSH_KEY }}   
+        
           script: |
-            cd /home/ubuntu/mi-web
+            cd /home/ubuntu
             git pull origin main
             docker stop reserva-app || true
             docker rm reserva-app || true
             docker build -t reserva-app .
-            docker run -d -p 8080:80 --name reserva-app reserva-app
+            docker run -d -p 80:80 --name reserva-app reserva-app
