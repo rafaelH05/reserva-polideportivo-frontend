@@ -21,7 +21,7 @@ jobs:
           proxy_key: ${{ secrets.SSH_KEY }}   
         
           script: |
-            cd /home/ubuntu
+            cd /home/ubuntu/reserva-polideportivo-frontend
             git pull origin main
             docker stop reserva-app || true
             docker rm reserva-app || true
