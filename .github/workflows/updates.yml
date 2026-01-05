@@ -47,5 +47,5 @@ jobs:
 
             sudo docker stop reserva-app || true
             sudo docker rm reserva-app || true
-            sudo docker run -d -p 80:80 --name reserva-app ${{ secrets.DOCKER_USERNAME }}/reserva-app:latest
+            sudo docker run -d -p 80:80 --network red-interna --name reserva-app ${{ secrets.DOCKER_USERNAME }}/reserva-app:latest
             sudo docker system prune -f
