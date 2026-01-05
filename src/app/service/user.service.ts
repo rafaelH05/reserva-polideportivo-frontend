@@ -9,7 +9,7 @@ import { Login } from '../Login';
 })
 export class UserService {
 
-  private api : string = 'https://reserva-polideportivo-backend.onrender.com';
+  private api : string = '/api';
 
   constructor(private http:HttpClient) { }
 
