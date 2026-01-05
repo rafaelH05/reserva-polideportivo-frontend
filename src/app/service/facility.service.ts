@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FacilityService {
-  private api: string = 'https://reserva-polideportivo-backend.onrender.com';
+  private api: string = '/api';
 
   constructor(private http:HttpClient) { }
 
