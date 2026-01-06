@@ -1,0 +1,25 @@
+name: deployment Docker
+on:
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conectarse a AWS y actualizar contenedor
+        uses: appleboy/ssh-action@master
+        with:
+          proxy_host: ${{ secrets.PROXY_HOST }}
+          proxy_username: ubuntu
+          proxy_key: ${{ secrets.SSH_KEY }}
+          
+          host: ${{ secrets.HOST_DNS }}
+          username: ubuntu
+          key: ${{ secrets.SSH_KEY }}
+          
+          script: |
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/reserva-app:latest
+
+            sudo docker stop reserva-app || true
+            sudo docker rm reserva-app || true
+            sudo docker run -d -p 80:80 --network red-interna --name reserva-app ${{ secrets.DOCKER_USERNAME }}/reserva-app:latest
+            sudo docker system prune -f
