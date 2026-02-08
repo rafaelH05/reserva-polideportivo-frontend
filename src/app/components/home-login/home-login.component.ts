@@ -31,7 +31,6 @@ export class HomeLoginComponent {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.bookings);
     const token = localStorage.getItem("token");
     if (token) {
       const decoded: any = jwtDecode(token);
@@ -44,6 +43,7 @@ export class HomeLoginComponent {
       data => {
         for (let i = 0; i < data.length; i++) {
           this.bookings = data;
+          console.log(this.bookings);
         }
         
       },
