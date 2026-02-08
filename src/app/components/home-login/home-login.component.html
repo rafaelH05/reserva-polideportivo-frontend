@@ -32,12 +32,12 @@
                 <tbody>
                     <tr *ngFor="let booking of bookings ; let i = index">
                         <td style="text-align: center; vertical-align: middle;">
-                            <img [src]="getFacilityImage(bookings[i][2])" alt="instalación" width="25"
+                            <img [src]="getFacilityImage(bookings[i][8])" alt="instalación" width="25"
                                 style="object-fit:contain;">
                         </td>
-                        <td>{{ bookings[i][8]}}</td>
-                        <td>{{ bookings[i][2] | date:'dd/MM/yyyy'}}</td>
-                        <td>{{ bookings[i][2] | date:'HH:mm'}}</td>
+                        <td>{{ bookings[i][10]}}</td>
+                        <td>{{ bookings[i][6] | date:'dd/MM/yyyy'}}</td>
+                        <td>{{ bookings[i][6] | date:'HH:mm'}}</td>
                         <td>{{ bookings[i][3] | date:'HH:mm'}}</td>
                         <td><button type="button" style="width: 60px; border: none; background: none;" class="btn btn-primary text-danger" (click)="borrarReserva(bookings[i][0])" data-bs-toggle="modal" data-bs-target="#confirmarEliminacion"><i class="bi bi-x-lg"></i></button></td>
                     </tr>
