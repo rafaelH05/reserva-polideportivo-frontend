@@ -31,7 +31,7 @@ export class HomeLoginComponent {
   ) { }
 
   ngOnInit(): void {
-    console.log(bookings);
+    console.log(this.bookings);
     const token = localStorage.getItem("token");
     if (token) {
       const decoded: any = jwtDecode(token);
